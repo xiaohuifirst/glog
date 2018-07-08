@@ -972,8 +972,9 @@ void LogFileObject::Write(bool force_flush,
     return;
   }
 
+  // 增加按天输出的功能
   if (static_cast<int>(file_length_ >> 20) >= MaxLogSize() ||
-      PidHasChanged()) {
+      PidHasChanged() || DayHasChanged()) {
     if (file_ != NULL) fclose(file_);
     file_ = NULL;
     file_length_ = bytes_since_flush_ = dropped_mem_length_ = 0;

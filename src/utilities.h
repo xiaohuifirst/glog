@@ -174,6 +174,8 @@ WallTime WallTime_Now();
 
 int32 GetMainThreadPid();
 bool PidHasChanged();
+// 增加按天输出的判断逻辑
+bool DayHasChanged();
 
 pid_t GetTID();
 
